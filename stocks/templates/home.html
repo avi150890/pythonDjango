@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Hello world</h1>
+
+<br/>
+
+{% if ticker %}
+	{{ticker}}
+{% endif %}
+
+{%  if api %}
+	{% if api == "Error.." %}
+	 	There was some problem with data.
+	{%  else %}
+		{{api.companyName}}
+		{% for key, value in api.items %}
+			{{key}}: {{value}}
+		{% endfor %}
+	{% endif %}
+{% endif %}
+
+
+{% endblock %}
